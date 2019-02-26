@@ -1,5 +1,4 @@
 # 🌊 Splashr
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 A React component that takes the effort out of adding a Splash Screen to your web application.
 
@@ -8,6 +7,7 @@ or [Tweet](https://twitter.com/intent/tweet?text=Check%20out%20%F0%9F%8C%8ASplas
 about it.
 
 [![npm version](https://badge.fury.io/js/splashr.svg)](https://badge.fury.io/js/splashr)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 <div style="text-align: center">
 <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/water-wave_1f30a.png" alt="ocean wave">
@@ -35,7 +35,7 @@ Here is a simple example use of Splashr.
 import Splashr from 'splashr';
 
 const splash = (
-  <div cloassName="splash-screen">
+  <div className="splash-screen">
     Welcome to my app
   </div>
 );
