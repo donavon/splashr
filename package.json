@@ -3,7 +3,7 @@
   "publishConfig": {
     "tag": "latest"
   },
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A React component that adds a Splash Screen to your app.",
   "main": "dist/splashr.js",
   "umd:main": "dist/splashr.umd.js",
