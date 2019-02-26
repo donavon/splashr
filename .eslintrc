@@ -1,0 +1,10 @@
+{
+  "extends": "amex",
+  "plugins": ["react-hooks"],
+  "rules": {
+    "react-hooks/rules-of-hooks": 2,
+    "react-hooks/exhaustive-deps": 2,
+    "symbol-description": 0,
+    "react/jsx-filename-extension": 0
+  }
+}
