@@ -76,7 +76,7 @@ Splashr.propTypes = {
 Splashr.defaultProps = {
   children: null,
   minDelay: 2000,
-  extend: false,
+  extend: undefined,
   transitionTime: 700,
   transitionTimingFunction: 'ease',
 };
