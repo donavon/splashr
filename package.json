@@ -3,7 +3,7 @@
   "publishConfig": {
     "tag": "latest"
   },
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "A React component that adds a Splash Screen to your app.",
   "main": "dist/splashr.js",
   "umd:main": "dist/splashr.umd.js",
@@ -30,6 +30,7 @@
     "react",
     "utils",
     "lib",
+    "suspense",
     "splash-screen"
   ],
   "author": "donavon",
