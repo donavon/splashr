@@ -16,7 +16,7 @@ const SplashrSuspense = ({ children, ...otherProps }) => {
 
   return (
     <Fragment>
-      <Suspense maxDuration={Infinity} fallback={memoizedDummy}>
+      <Suspense fallback={memoizedDummy}>
         {isSuspended ? children : null}
       </Suspense>
       <Splashr {...otherProps} extend={isSuspended}>
