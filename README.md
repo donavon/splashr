@@ -13,6 +13,11 @@ about it.
 <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/water-wave_1f30a.png" alt="ocean wave">
 </div>
 
+
+## New in Version 0.3.x
+
+* Support for [React Suspense](https://reactjs.org/docs/code-splitting.html) and lazy loading of components (see below for details)!
+
 ## Installation
 
 ```bash
@@ -27,7 +32,7 @@ $ yarn add splashr
 
 ⚠️ Note: Splashr has a peerDependency on React 16.8.0 or greater.
 
-## Usage
+## Basic Usage
 
 Here is a simple example use of Splashr.
 
@@ -63,12 +68,55 @@ Here are some of the props that you can use to customize Splashr. (\* = required
 | `transitionTime`     |  By default, Splashr will transition between the splash screen and your app. This value will set the transition time in msecs. To disable the transition, set `transitionTime` to 0. Default = 700  |
 | `transitionTimingFunction`     |  The string representing the [timing function](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function) to perform on the transition. Default = "ease"  |
 
+## Suspense
+
+Starting with version 0.3.0, there is support for React Suspense and lazy loading.
+
+Let's say you lazy load some components. With Suspense,
+the splash screen will remin visible for _at least_ 2 seconds
+(by default, or whatever value you speify in `minDelay`),
+but possibly longer if the components have yet to load.
+This is very useful for slower 2G/3G connections on mobile devices.
+
+One might do this to get the splash screen rendered as soon as possible while the rest of the app is sill loading (or
+[First Meaningful Paint](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)).
+
+To support Suspense, simply change `<Splashr>` to `<Splashr.Suspense>`.
+All props are supported except `extend`, which is ignored with `<Splashr.Suspense>`.
+
+```js
+import Splashr from 'splashr';
+
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
+
+const splash = (
+  <div className="splash-screen">
+    Welcome to my app
+  </div>
+);
+
+const App = () => (
+  <Splashr.Suspense splash={splash}>
+    <div className="app">
+      <OtherComponent />
+      <AnotherComponent />
+    </div>
+  </Splashr.Suspense>
+);
+```
+
+### Why not just use React's `Suspense`?
+
+`Splashr.Suspense` is simular to React's built-in `Suspense` (in fact it's built on top of it), but supports a smooth transition between the splash screen and the rest of the app. it also supports a `minDelay`, which React's `Suspense` does not.
+
 ## Sample Apps
 
 Here is a list of apps build with Splashr.
 If you have an app you would like to include on this list, open a PR.
 
 * [Demo App on CodeSandbox](https://codesandbox.io/s/9on6o2076y) - by [@donavon](https://twitter.com/donavon)
+* [Splash.Suspense demo on CodeSandbox](https://codesandbox.io/s/o5pqnq49w6) - by [@donavon](https://twitter.com/donavon)
 
 ## License
 
