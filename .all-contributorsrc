@@ -24,6 +24,16 @@
         "tool",
         "code"
       ]
+    },
+    {
+      "login": "crosscompile",
+      "name": "Jack Cross",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1153686?v=4",
+      "profile": "https://github.com/crosscompile",
+      "contributions": [
+        "ideas",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7
