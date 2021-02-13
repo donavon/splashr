@@ -67,6 +67,7 @@ Here are some of the props that you can use to customize Splashr. (\* = required
 | `extend`     |  A boolean that will extend the splash screen. Set to `true` to extend the splash screen past `minDelay`, maybe to load a resource. Default = `false`.   |
 | `transitionTime`     |  By default, Splashr will transition between the splash screen and your app. This value will set the transition time in msecs. To disable the transition, set `transitionTime` to 0. Default = 700  |
 | `transitionTimingFunction`     |  The string representing the [timing function](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function) to perform on the transition. Default = "ease"  |
+| `onCompleted`     |  A function that will be called when the spash screen is no longer visible.  |
 
 ## Suspense
 

@@ -15,6 +15,7 @@ const Splashr = ({
   extend,
   transitionTime,
   transitionTimingFunction,
+  onCompleted,
 }) => {
   const showSplashScreen = useInitialDelay(minDelay, extend);
   const [isCompleted, setCompleted] = useState(false);
@@ -22,12 +23,14 @@ const Splashr = ({
 
   if (!showSplashScreen && !transitionTime && !isCompleted) {
     setCompleted(true);
+    onCompleted();
   }
 
   useListener(
     'transitionend',
     () => {
       setCompleted(true);
+      onCompleted();
       splashScreenEl.current = null;
     },
     transitionTime ? splashScreenEl.current : null
@@ -71,6 +74,7 @@ Splashr.propTypes = {
   extend: PropTypes.bool,
   transitionTime: PropTypes.number,
   transitionTimingFunction: PropTypes.string,
+  onCompleted: PropTypes.func,
 };
 
 Splashr.defaultProps = {
@@ -79,6 +83,7 @@ Splashr.defaultProps = {
   extend: undefined,
   transitionTime: 700,
   transitionTimingFunction: 'ease',
+  onCompleted: () => {},
 };
 
 export default Splashr;

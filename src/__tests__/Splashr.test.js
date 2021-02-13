@@ -96,4 +96,22 @@ describe('Splashr', () => {
     jest.advanceTimersByTime(700);
     expect(container.children.length).toBe(1);
   });
+
+  test('calls onCompleted method`', () => {
+    const onCompleted = jest.fn();
+    const { container } = render(
+      <Splashr splash={splash} onCompleted={onCompleted}>{children}</Splashr>
+    );
+    const transitionEl = container.children[1];
+
+    expect(onCompleted).not.toHaveBeenCalled();
+    expect(container.children.length).toBe(2);
+    jest.advanceTimersByTime(2000);
+    expect(container.children.length).toBe(2);
+    expect(onCompleted).not.toHaveBeenCalled();
+    fireEvent.transitionEnd(transitionEl);
+    jest.advanceTimersByTime(700);
+    expect(container.children.length).toBe(1);
+    expect(onCompleted).toHaveBeenCalledTimes(1);
+  });
 });
