@@ -16,6 +16,7 @@ const Splashr = ({
   transitionTime,
   transitionTimingFunction,
   onCompleted,
+  position = 'fixed'
 }) => {
   const showSplashScreen = useInitialDelay(minDelay, extend);
   const [isCompleted, setCompleted] = useState(false);
@@ -49,7 +50,7 @@ const Splashr = ({
         <div
           ref={splashScreenEl}
           style={{
-            position: 'fixed',
+            position,
             margin: 0,
             padding: 0,
             top: 0,
@@ -75,6 +76,7 @@ Splashr.propTypes = {
   transitionTime: PropTypes.number,
   transitionTimingFunction: PropTypes.string,
   onCompleted: PropTypes.func,
+  position: PropTypes.string,
 };
 
 Splashr.defaultProps = {

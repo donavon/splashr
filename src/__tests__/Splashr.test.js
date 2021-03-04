@@ -114,4 +114,22 @@ describe('Splashr', () => {
     expect(container.children.length).toBe(1);
     expect(onCompleted).toHaveBeenCalledTimes(1);
   });
+
+  test('accepts a position prop`', () => {
+    const { container } = render(
+      <Splashr position="absolute" splash={splash}>{children}</Splashr>
+    );
+    const transitionEl = container.children[1];
+
+    expect(transitionEl.style.position).toBe('absolute');
+  });
+
+  test('has default fixed position`', () => {
+    const { container } = render(
+      <Splashr splash={splash}>{children}</Splashr>
+    );
+    const transitionEl = container.children[1];
+
+    expect(transitionEl.style.position).toBe('fixed');
+  });
 });
