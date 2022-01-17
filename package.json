@@ -65,7 +65,7 @@
     }
   },
   "dependencies": {
-    "@use-it/event-listener": "^0.1.2",
+    "@use-it/event-listener": "^0.1.7",
     "prop-types": "^15.7.2"
   }
 }
